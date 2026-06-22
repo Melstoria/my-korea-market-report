@@ -82,7 +82,7 @@ def run_pipeline(target_date=None):
         return
 
     print(f"    주도섹터: {[s['sector'] for s in analysis['leading_sectors'][:3]]}")
-    print(f"    레짐: {', '.join(analysis['regime']['tags'][:2])}")
+    print(f"    레짐: {', '.join(analysis.get('regime_kospi',{}).get('tags',[''])[:2])}")
 
     print("\n[4] 리포트 생성 중...")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -93,5 +93,6 @@ def run_pipeline(target_date=None):
     return filepath
 
 if __name__ == "__main__":
-    target = sys.argv[1] if len(sys.argv) > 1 else None
+    args = [a for a in sys.argv[1:] if not a.startswith("--") and a != INPUT_DIR]
+    target = args[0] if args else None
     run_pipeline(target)
