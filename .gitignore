@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+data/*.db
+
+# 비밀값: .env 계열은 어떤 폴더에 있어도 올리지 않는다
+.env
+.env.*
+*.env
+!.env.example
+.git-credentials
+*.pem
+*.key
