@@ -553,7 +553,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Pretendard',sa
 <div class="hd-top">
   <div>
     <div class="hd-title">{date_kor} 국내 시장 일일 분석</div>
-    <div class="hd-sub">KOSPI · KOSDAQ 거래대금 상위 기준 &nbsp;·&nbsp; {weekday}요일</div>
+    <div class="hd-sub">{data.get('source_note', 'KOSPI · KOSDAQ 거래대금 상위 기준')} &nbsp;·&nbsp; {weekday}요일</div>
   </div>
   <div class="mkt-tabs">
     <button class="mkt-tab active" onclick="sw('kospi',this)">KOSPI</button>

@@ -63,7 +63,7 @@ def update_index():
 
 <div class="hd-brand">KR</div>
 <div class="hd-title">Korea Market <span style="color:#EF4444">Report</span></div>
-<div class="hd-sub">한국 증시 분석 리포트 · 매일 장마감 후 업데이트</div>
+<div class="hd-sub">한국 증시 분석 리포트 · 평일 아침 전 거래일 기준 업데이트(KRX Open API)</div>
 
 <div class="section dash" style="margin-bottom:24px">
   <div class="sec-title">📌 대시보드</div>

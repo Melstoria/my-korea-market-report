@@ -10,3 +10,7 @@ data/*.db
 .git-credentials
 *.pem
 *.key
+
+# KRX Open API raw cache (local only)
+data/krx/
+data/*.log
