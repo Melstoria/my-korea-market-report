@@ -38,13 +38,13 @@ def main():
     args = sys.argv[1:]
     if "--no-fetch" not in args:
         days = cached_days()
-        start = (pd.Timestamp(days[-1]) + pd.Timedelta(days=1)).strftime("%Y%m%d") if days else "20250801"
+        start = (pd.Timestamp(days[-1]) + pd.DateOffset(days=1)).strftime("%Y%m%d") if days else "20250801"
         fetch(start, (date.today() - timedelta(days=1)).strftime("%Y%m%d"))
     if "--from" in args:
         start = args[args.index("--from") + 1]
     else:
         last = last_report_day()
-        start = (pd.Timestamp(last) + pd.Timedelta(days=1)).strftime("%Y%m%d") if last else cached_days()[-1]
+        start = (pd.Timestamp(last) + pd.DateOffset(days=1)).strftime("%Y%m%d") if last else cached_days()[-1]
     targets = [d for d in cached_days() if d >= start]
     if not targets:
         print("새 거래일 없음: 리포트 생략")

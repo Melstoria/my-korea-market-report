@@ -99,5 +99,5 @@ if __name__ == "__main__":
         days = cached_days()
         if not days:
             sys.exit("캐시 없음: 시작·끝 날짜를 지정하세요")
-        start = (pd.Timestamp(days[-1]) + pd.Timedelta(days=1)).strftime("%Y%m%d")
+        start = (pd.Timestamp(days[-1]) + pd.DateOffset(days=1)).strftime("%Y%m%d")
         fetch(start, (date.today() - timedelta(days=1)).strftime("%Y%m%d"))
