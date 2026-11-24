@@ -47,15 +47,15 @@ def load_day(d: str) -> pd.DataFrame:
 
 
 def _get(key, ep, d):
-    for _ in range(3):
+    for wait in (10, 30, 60, 120, 240, 0):  # PC가 막 켜져 네트워크가 불안정할 때를 대비해 약 8분까지 기다린다
         try:
             r = requests.get(f"https://data-dbg.krx.co.kr/svc/apis/sto/{ep}", params={"basDd": d},
                              headers={"AUTH_KEY": key}, timeout=30)
             r.raise_for_status()
             return r.json().get("OutBlock_1") or []
         except Exception as e:  # 값(키)은 출력하지 않는다
-            print("재시도", ep, d, type(e).__name__, flush=True)
-            time.sleep(5)
+            print("재시도", ep, d, type(e).__name__, f"{wait}s 후", flush=True)
+            time.sleep(wait)
     sys.exit(f"Open API 실패: {ep} {d}")
 
 
